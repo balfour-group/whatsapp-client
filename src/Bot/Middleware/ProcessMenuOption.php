@@ -116,7 +116,7 @@ class ProcessMenuOption implements MiddlewareInterface
     /**
      * @param string $key
      * @param string $phoneNumber
-     * @return ?ActionInterface
+     * @return ActionInterface|null
      * @throws Exception
      */
     public function getEscapeKeyAction(string $key, string $phoneNumber): ?ActionInterface

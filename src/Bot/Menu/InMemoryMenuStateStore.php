@@ -59,7 +59,7 @@ class InMemoryMenuStateStore implements MenuStateStoreInterface
         } else {
             $this->store[$phoneNumber] = [
                 'menu' => $menu,
-                'expires_at' => Carbon::now()->addSecond($ttl),
+                'expires_at' => Carbon::now()->addSeconds($ttl),
             ];
         }
     }
