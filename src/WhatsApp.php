@@ -246,7 +246,7 @@ class WhatsApp
      */
     protected function parseMessage(array $message): Message
     {
-        if (!preg_match('/^(\d+)@(.+)$/', $message['chatId'], $matches)) {
+        if (!preg_match('/^(\d+)(-\d+)?@(.+)$/', $message['chatId'], $matches)) {
             throw new Exception(sprintf('The chat id "%s" cannot be parsed to a phone number.', $message['chatId']));
         }
 
