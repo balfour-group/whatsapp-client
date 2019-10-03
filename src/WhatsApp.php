@@ -113,10 +113,10 @@ class WhatsApp
 
     /**
      * @param Request $request
-     * @return mixed[]
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function sendRequest(Request $request): array
+    protected function sendRequest(Request $request)
     {
         $options = $this->getDefaultRequestOptions();
         $response = $this->client->send($request, $options);
@@ -138,10 +138,10 @@ class WhatsApp
     /**
      * @param string $endpoint
      * @param mixed[] $payload
-     * @return mixed[]
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function post(string $endpoint, array $payload = []): array
+    public function post(string $endpoint, array $payload = [])
     {
         $request = new Request(
             'POST',
@@ -157,10 +157,10 @@ class WhatsApp
     /**
      * @param string $endpoint
      * @param mixed[] $params
-     * @return mixed[]
+     * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function get(string $endpoint, array $params = []): array
+    public function get(string $endpoint, array $params = [])
     {
         $request = new Request('GET', $this->getBaseUri($endpoint, $params));
         return $this->sendRequest($request);
