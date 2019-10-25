@@ -276,7 +276,7 @@ class WhatsApp
     {
         $response = $this->post('reboot');
 
-        $success = $response['success'] ?? false;
+        $success = $response && $response['success'];
         if (!$success) {
             throw new Exception('The reboot call failed to execute.');
         }
@@ -299,12 +299,12 @@ class WhatsApp
     }
 
     /**
-     * @param mixed[] $response
+     * @param mixed[]|null $response
      * @throws Exception
      */
-    protected static function assertMessageWasSent(array $response): void
+    protected static function assertMessageWasSent(?array $response): void
     {
-        $isSent = $response['sent'] ?? false;
+        $isSent = $response && $response['sent'];
 
         if (!$isSent) {
             $message = $response['message'] ?? 'The message failed to send.';
